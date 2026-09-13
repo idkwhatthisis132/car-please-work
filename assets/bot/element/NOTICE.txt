@@ -1,0 +1,19 @@
+Element by Rangler / RLGym community, distributed in RLBot/RLBotPack.
+Source: https://github.com/RLBot/RLBotPack/tree/0033a98d4e060670f334f60f7f8dc5ee21ba93bb/RLBotPack/Element
+Pinned revision: 0033a98d4e060670f334f60f7f8dc5ee21ba93bb
+The repository MIT license is included in LICENSE.txt. No separate license or
+model restriction occurs in the pinned Element subtree. Model and code were
+added by lucas-emery in commit 0e2f63dce48e72a1c28f9ace6361e8386b60c753.
+
+Adaptation: ONNX export of the unmodified trained actor, flattened probability
+heads, TypeScript observations/controller decoding, and Element's own dynamic
+speedflip kickoff. No Nexto/Necto code, models or kickoff table are used.
+Observations use native car orientation, wheel contact and flip availability;
+these replace the original RLBot wrapper's Euler reconstruction, six-tick
+contact grace and approximate double-jump flag. The previous raw policy action
+is preserved even when the controller suppresses yaw during a jump.
+Kickoff angle dot products are clamped for numerical stability.
+This is a historical 1v1 model; difficulty labels do not certify a human rank.
+
+Reproduce: python tools/export-element.py
+Independent upstream fixtures: python tools/verify-element.py
