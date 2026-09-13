@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  base: '/car-please-work/',
+  base: './', // The './' makes all paths relative to wherever the file is hosted!
 })
